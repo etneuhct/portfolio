@@ -35,11 +35,13 @@ const portfolioData = {
         "Kubernetes",
         "Git",
         "CI/CD",
+        "Ansible",
+        "Terraform"
     ],
     projects: [
         {
             title: "Health Me",
-            description: "Developed a web application enabling users to manage and track their personal health information. The application provides an intuitive interface to log and review medical data, simplifying everyday health management.",
+            description: "Developed a web application enabling users to manage and track their personal health information. The application aims to provide an intuitive interface to log and review medical or fitness data, simplifying everyday health management.",
             link: "https://health-me.demo.jorganise.app/"
         },
         {
@@ -53,11 +55,29 @@ const portfolioData = {
             link: "https://restinpi.com/"
         }
     ],
+    otherProjects: [
+        {
+            "title": "Jolof Shop",
+            "description": "Designed an online store tailored for users in Senegal to purchase prepaid cards using mobile wallets such as Orange Money or Wave. The platform offers a seamless user experience, enabling quick and secure transactions.",
+            "link": null
+        },
+        {
+            "title": "Cote Covid",
+            "description": "Created a web application for grade optimization, intended for students at Université Laval.",
+            "link": "https://www.unatelier.app/"
+        },
+        {
+            "title": "Cloudacy",
+            "description": "Developed a web client to store encrypted files transparently on cloud services like Dropbox or Google Drive. Built with Angular, the application ensures data privacy and offers a user-friendly interface for seamless file management.",
+            "link": null
+        }
+    ],
     contact: {
-        email: "jane.doe@example.com",
+        email: "jacktchuente@gmail.com",
         github: "https://github.com/etneuhct",
         linkedin: "https://www.linkedin.com/in/jack-tchuente/"
-    }
+    },
+
 };
 
 
@@ -95,11 +115,21 @@ function renderPortfolio() {
             <div class="card">
                 <h3>${project.title}</h3>
                 <p>${project.description}</p>
-                <button onclick="window.open('${project.link}', '_blank')">View Project</button>
+                ${project.link ? `<button onclick="window.open('${project.link}', '_blank')">View Project</button>` : ''}
             </div>
         `;
     });
 
+    const otherProjectsSection = document.querySelector(".other-projects-grid");
+    portfolioData.otherProjects.forEach(project => {
+        otherProjectsSection.innerHTML += `
+            <div class="card">
+                <h3>${project.title}</h3>
+                <p>${project.description}</p>
+                ${project.link ? `<button onclick="window.open('${project.link}', '_blank')">View Project</button>` : ''}
+            </div>
+        `;
+    });
     document.querySelector("footer").innerHTML = `
         <p>&copy; ${new Date().getFullYear()} ${portfolioData.name}. All rights reserved.</p>
     `;

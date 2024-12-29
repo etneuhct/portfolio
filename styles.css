@@ -100,3 +100,18 @@ footer {
     text-align: center;
     margin-top: 40px;
 }
+
+
+
+.other-projects-grid .card {
+    background-color: #374151;
+    border: 1px solid #4b5563;
+}
+
+.other-projects-grid button {
+    background-color: #6b7280;
+}
+
+.other-projects-grid button:hover {
+    background-color: #4b5563;
+}
